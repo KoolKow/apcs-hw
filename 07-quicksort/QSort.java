@@ -10,16 +10,24 @@ public class QSort{
 	a[right] = piv;
 	int wall = left;
 	for(int i = left; i<right; i++){
-	    if(a[i] <= piv){
+	    if(a[i] < piv){
 		int temp = a[i];
 		a[i] = a[wall];
 		a[wall] = temp;
 		wall++;
 	    }
 	}
+	int rwall = wall;
+	for(int j = wall; j<right; j++){
+	    if(a[j] == piv){
+		a[j] = a[rwall];
+		a[rwall] = piv;
+		rwall++;
+	    }
+	}
 	a[right] = a[wall];
 	a[wall] = piv;
-	return wall;
+	return (wall+rwall)/2;
     }
 
     public void quicksort2(int[] a,int left, int right){
@@ -28,7 +36,7 @@ public class QSort{
 	}
 	else{
 	    int n = partition(a,left,right);
-	    quicksort2(a,left,n-1);
+	    quicksort2(a,left,n);
 	    quicksort2(a,n+1,right);
 	}
     }
@@ -39,5 +47,14 @@ public class QSort{
 	System.out.println(Arrays.toString(a));
 	q.quicksort2(a,0,a.length-1);
 	System.out.println("Result: "+Arrays.toString(a));
+
+	int[] b = new int[10000000];
+	Random r = new Random();
+	for(int i = 0; i<b.length; i++){
+	    b[i] = r.nextInt(100);
+	}
+	//System.out.println(Arrays.toString(b));
+	q.quicksort2(b,0,b.length-1);
+	//System.out.println("Result: "+Arrays.toString(b));
     }
 }
