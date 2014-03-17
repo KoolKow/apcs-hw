@@ -36,7 +36,7 @@ public class QSort{
 	}
 	else{
 	    int n = partition(a,left,right);
-	    quicksort2(a,left,n);
+	    quicksort2(a,left,n-1);
 	    quicksort2(a,n+1,right);
 	}
     }
