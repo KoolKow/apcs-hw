@@ -6,9 +6,17 @@ public class MyLinkedList{
     }
 
     public void add(String d){
-	Node temp = new Node(d);
-	temp.setNext(head);
-	head = temp;
+	//adds to beginning of linked list
+	// Node temp = new Node(d);
+	// temp.setNext(head);
+	// head = temp;
+
+	//adds to end of linked list
+	Node temp = head;
+	while(temp != null){
+	    temp = temp.getNext();
+	}
+	temp.setNext(new Node(d));
     }
 
     public void add(int i, String s){
@@ -43,8 +51,8 @@ public class MyLinkedList{
 	for(int j = 0; j<=i; j++){
 	    if(j == i){
 		String ans = temp.getData();
-		//temp.setData(s);
-		temp = new Node(s);
+		temp.setData(s);
+		//temp = new Node(s);
 		return ans;
 	    }
 	    else{
@@ -55,18 +63,18 @@ public class MyLinkedList{
     }
 
     public String remove(int i){
-	Node temp = head;
-	for(int j = 0; j<=i; j++){
-	    if(j == i-1){
-		String ans = temp.getNext().getData();
-		temp.setNext(temp.getNext().getNext());
-		return ans;
-	    }
-	    else{
-		temp = temp.getNext();
-	    }
-	}
-	return temp.getData();
+    	Node temp = head;
+    	for(int j = 0; j<=i; j++){
+    	    if(j == i-1){
+    		String ans = temp.getNext().getData();
+    		temp.setNext(temp.getNext().getNext());
+    		return ans;
+    	    }
+    	    else{
+    		temp = temp.getNext();
+    	    }
+    	}
+    	return temp.getData();
     }
 
     public int find(String s){
@@ -80,8 +88,8 @@ public class MyLinkedList{
 	return -1;
     }
 
-    //maybe I should rewrite the other methods using length()
-    public int length(){
+    //maybe I should rewrite the other methods using size()
+    public int size(){
 	Node temp = head;
 	int i = 0;
         for(;temp != null; i++){
@@ -102,7 +110,6 @@ public class MyLinkedList{
 
     public static void main(String[]args){
 	MyLinkedList L = new MyLinkedList();
-	
 	L.add("Sully");
 	System.out.println(L);
 	L.add("Mike");
@@ -118,6 +125,6 @@ public class MyLinkedList{
 	System.out.println(L);
 	System.out.println(L.find("Sully"));
 	System.out.println(L.find("AlwaysWatching"));
-	System.out.println(L.length());
+	System.out.println(L.size());
     }
 }
