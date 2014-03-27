@@ -21,7 +21,9 @@ public class LL3{
 	    if(j == i){
 		ans.setNext(temp.getNext());
 		temp.setNext(ans);
-		tail = ans;
+		if(i == size()-1){
+		    tail = ans;
+		}
 	    }
 	    else{
 		temp = temp.getNext();
@@ -110,6 +112,10 @@ public class LL3{
 	L.add("Boo");
 	System.out.println(L);
 	L.add(3,"sewew");
+	System.out.println(L);
+	System.out.println(L.size());
+	System.out.println(L.tail);
+	L.add(2,"poop");
 	System.out.println(L);
 	System.out.println(L.tail);
     }
