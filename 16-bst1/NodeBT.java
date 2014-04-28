@@ -1,6 +1,6 @@
 public class NodeBT{
     private int data;
-    private Node left, right;
+    private NodeBT left, right;
 
     public NodeBT(int d){
 	data = d;
@@ -16,19 +16,19 @@ public class NodeBT{
 	return data;
     }
 
-    public void setLeft(Node L){
+    public void setLeft(NodeBT L){
 	left = L;
     }
 
-    public Node getLeft(){
+    public NodeBT getLeft(){
 	return left;
     }
 
-    public void setRight(Node R){
+    public void setRight(NodeBT R){
 	right = R;
     }
 
-    public Node getRight(){
+    public NodeBT getRight(){
 	return right;
     }
 
